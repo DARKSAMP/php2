@@ -1,0 +1,60 @@
+{% include 'header.twig' %}
+<div class="wrap_form">
+    <form enctype="multipart/form-data" action="loadImage" method="post">
+        <input type="file" name="new_file" value=""/>
+        <input type="submit" name="load_file" value="Отправить файл"/>
+    </form>
+</div>
+<div class="wrap clear_fix">
+    <ul id="gallery">
+        {% for picture in pictures %}
+        <li>
+            <a href="{{ picture.href }}" target="_blank" style="background-image: url('{{ picture.thumb }}');"></a>
+            <div><span>{{ picture.date }}</span><br><span> Просмотров: {{ picture.review }}</span></div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% if next_page %}
+        <button id="show-more" data-page="{{ next_page }}">Показать еще</button>
+    {% endif %}
+</div>
+{% include 'footer.twig' %}
+<script>
+$(document).ready(function () {
+    $('#show-more').on('click', function () {
+
+        $.ajax({
+            type: 'get',
+            url:  'index',
+            dataType: 'json',
+            data: {page : $(this).attr('data-page'), ajax : true},
+            success: function (json) {
+                console.log(json);
+                if (json['pictures']) {
+
+                    var html = '';
+
+                    json['pictures'].map(function (image, index) {
+                           html += '<li><a href="' + image.href + '" target="_blank" style="background-image: url(' + image.thumb + ')\;\"></a>';
+                           html += '<div><span>' + image.date + '</span><br><span> Просмотров: ' + image.review + '</span></div></li>';
+                    });
+
+                    $('#gallery').append(html);
+
+                    console.log(json['next_page']);
+                    if (json['next_page']) {
+                        $('#show-more').attr('data-page', json['next_page']);
+                    } else {
+                        $('#show-more').remove();
+                    }
+
+                }
+            },
+            error: function(errorMsg){
+                console.log(errorMsg);
+            }
+        });
+
+    });
+});
+</script>

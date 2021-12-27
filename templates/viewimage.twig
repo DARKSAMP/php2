@@ -1,0 +1,8 @@
+{% include 'header.twig' %}
+<div class="wrap img">
+    <span>Дата добавления: {{ picture.date }}</span><br>
+    <span>Размер:  {{ picture.size }}</span><br>
+    <span>Количество просмотров:  {{ picture.review }}</span><br>
+    <img src="{{ picture.img }}">
+</div>
+{% include 'footer.twig' %}
