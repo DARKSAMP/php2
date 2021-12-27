@@ -1,0 +1,9 @@
+<div style="width: 1000px; height: fit-content; padding: 0; margin: 0 auto; display: flex; flex-wrap: wrap;">
+    <!-- в данном шаблоне отрисовываются картинки с ссылкой на оригинальное изображение -->
+    {% for image in images %}
+        <div style="margin: 15px; height: 150px; display: flex; flex-direction: column; justify-content: space-around;">
+            <img style="width: 150px" src="src/img/{{ image.name }}" alt="{{ image.altername }}">
+            <a style="text-decoration:  none; color: black" href="?id={{ image.id }}">{{ image.altername }}</a>
+        </div>
+    {% endfor %}
+</div>
