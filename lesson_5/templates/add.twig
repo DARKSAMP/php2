@@ -1,0 +1,11 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Add good{% endblock %}
+{% block content %}
+    <a href="/goods">Back to goods</a>
+    <form action="" method="post">
+        Title: <input type="text" name="title"><br>
+        Price: <input type="number" name="price"><br>
+        <input type="submit" value="send">
+    </form>
+{% endblock %}
