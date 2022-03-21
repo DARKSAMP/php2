@@ -1,0 +1,48 @@
+* {
+    font-family: Arial, sans-serif;
+}
+.good__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.good {
+    display: flex;
+    width: 300px;
+    height: 430px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.good__row_main {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.good__main {
+    width: 300px;
+    height: 350px;
+    border: 1px solid black;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+.form-control {
+    width: 100px;
+}
+
+
+
