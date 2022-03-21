@@ -1,0 +1,15 @@
+{% extends '../layout.twig' %}
+
+{% block title %}Login{% endblock %}
+{% block content %}
+    {% if error %}
+        <p>wrong login or password</p>
+    {% endif %}
+
+    <p>registration</p>
+    <form action="" method="post">
+        Username: <input type="text" name="username"><br>
+        Password: <input type="text" name="password"><br>
+        <input type="submit" name="send">
+    </form>
+{% endblock %}
